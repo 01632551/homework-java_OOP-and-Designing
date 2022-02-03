@@ -34,38 +34,34 @@ public class Radio {
 
 
     // increase volume per 1
-    public int nextVolume() {
+    public void nextVolume() {
         if (currentVolume < maxVolume) {
             currentVolume++;
         }
-        return currentVolume;
     }
 
     // decrease volume per 1
-    public int prevVolume() {
+    public void prevVolume() {
         if (currentVolume > minVolume) {
             currentVolume--;
         }
-        return currentVolume;
     }
 
     // increase radio station per 1
-    public int nextRadioStation() {
+    public void nextRadioStation() {
         if (currentRadioStation < maxRadioStation) {
             currentRadioStation++;
         } else {
             currentRadioStation = minRadioStation;
         }
-        return currentRadioStation;
     }
 
     // decrease radio station per 1
-    public int prevRadioStation() {
+    public void prevRadioStation() {
         if (currentRadioStation > minRadioStation) {
             currentRadioStation--;
         } else {
             currentRadioStation = maxRadioStation;
         }
-        return currentRadioStation;
     }
 }
