@@ -1,67 +1,70 @@
 package ru.netology.domain;
 
 public class Radio {
-    private int currentRadioStation;
-    private int currentVolume;
-    int maxVolume = 10;
-    int minVolume = 0;
-    int maxRadioStation = 9;
-    int minRadioStation = 0;
+    private int currentRadioStation; // add by user
+    private int currentVolume; // add by user
+    int quantityOfRadioStations = 10; // add by user
+    int maxVolume = 100;
+    int minVolume = 0; // value is default (0 for int)
+    int minRadioStation = 0; // value is default (0 for int)
+    // |max radio station| is |quantity of radio stations - 1|
 
-    // setter for current radio station
+    public Radio (int quantityOfRadioStations){
+        this.quantityOfRadioStations = quantityOfRadioStations;
+    }
+
+    public Radio (){
+    }
+
+    // setter & getter for current radio station
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation >= minRadioStation && currentRadioStation <= maxRadioStation) {
+        if (currentRadioStation >= minRadioStation && currentRadioStation <= quantityOfRadioStations - 1) {
             this.currentRadioStation = currentRadioStation;
         }
     }
 
-    // getter for current radio station
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    // setter for current volume
+    // setter & getter for current volume
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume >= minVolume && currentVolume <= maxVolume) {
             this.currentVolume = currentVolume;
         }
     }
 
-    // getter for current volume
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-
-    // increase volume per 1
+    // increase & decrease volume per 1
     public void nextVolume() {
         if (currentVolume < maxVolume) {
             currentVolume++;
         }
     }
 
-    // decrease volume per 1
     public void prevVolume() {
         if (currentVolume > minVolume) {
             currentVolume--;
         }
     }
 
-    // increase radio station per 1
+    // increase & decrease radio station per 1
     public void nextRadioStation() {
-        if (currentRadioStation < maxRadioStation) {
+        if (currentRadioStation < quantityOfRadioStations - 1) {
             currentRadioStation++;
         } else {
             currentRadioStation = minRadioStation;
         }
     }
 
-    // decrease radio station per 1
     public void prevRadioStation() {
         if (currentRadioStation > minRadioStation) {
             currentRadioStation--;
         } else {
-            currentRadioStation = maxRadioStation;
+            currentRadioStation = quantityOfRadioStations - 1;
         }
     }
 }
